@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="icon" href="images/jedi-order-brands.svg">
+    <title>Contact Form</title>
 </head>
 <body>
     
+    <form id="form-contact" action="">
+        <div class="form">
+            <h1>Contact us</h1>
+            <div class="group">
+                <input type="text" name="" id="name-form" required><span class="line-form"></span>
+                <label>Full Name</label>
+            </div>
+            <div class="group">
+                <input type="email" name="" id="email-form" required><span class="line-form"></span>
+                <label>Email</label>
+            </div>
+            <div class="group">
+                <textarea name="" id="txtArea" rows="3" required></textarea><span class="line-form"></span>
+                <label>Comments</label>
+            </div>
+            <button type="button" onclick="captureDataForm()">Send</button>
+        </div>
+    </form>
+
+    <script src="js/form.js"></script>
 </body>
 </html>
