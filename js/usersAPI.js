@@ -9,13 +9,15 @@ const listUsers = async () => {
     users.forEach((user, index) => {
         console.log(user);
         tableBody += `<tr>
-        <td>${user.id}</td>
-        <td>${user.name}</td>
-        <td>${user.email}</td>
-        <td>${user.phone}</td>
-        <td>${user.adress.city}</td>
-        <td>${user.company.name}</td>
+        <td data-label="#">${user.id}</td>
+        <td data-label="Name">${user.name}</td>
+        <td data-label="E-mail">${user.email}</td>
+        <td data-label="Phone">${user.phone}</td>
+        <td data-label="City">${user.address.city}</td>
+        <td data-label="Company">${user.company.name}</td>
         </tr>`;
     });
     document.getElementById("tableUsers").innerHTML = tableBody;
 }
+
+listUsers();
