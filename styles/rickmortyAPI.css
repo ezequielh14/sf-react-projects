@@ -21,8 +21,13 @@ body {
   }
   
   .characters-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    /*display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     gap: 30px;
     width: 80%;
     margin-left: auto;
@@ -40,7 +45,7 @@ body {
   }
   
   .img-container {
-    background-image: url("images/blob.svg");
+    background-image: url("../images/blob.svg");
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -55,8 +60,8 @@ body {
     font-size: 1.2rem;
   }
   
-  #spinner {
-    display: none;
+  .loader {
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;

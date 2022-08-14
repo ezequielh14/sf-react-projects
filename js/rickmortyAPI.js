@@ -1,16 +1,20 @@
-const spinner = document.querySelector("#spinner");
+const cardBody = document.getElementById("cardsBody");
 const nav_pagination = document.getElementById("nav-pagination");
-const url = 'https://rickandmortyapi.com/api/character';
-const characterList = async (url) => {
+const url = "https://rickandmortyapi.com/api/character";
 
+const loader = `
+  <img class="loader" scr="images/loader.svg" alt="Loading...">
+`;
+
+const characterList = async (url) => {
   const response = await fetch(url);
   const characters = await response.json();
-  spinner.style.display = "none";
   paginationCharacters(characters.info);
   console.log(characters);
-  
+
+  cardBody.innerHTML = loader;
   let cardsBody = ``;
-  characters.results.forEach((character, index)=>{
+  characters.results.forEach((character, index) => {
     console.log(character);
     cardsBody += `<div class="flip-card">
     <div class="card-container">
@@ -31,14 +35,13 @@ const characterList = async (url) => {
     </div>
     </div>`;
   });
-  document.getElementById("cardsBody").innerHTML = cardsBody;
-}
+  cardBody.innerHTML = cardsBody;
+};
 
 const paginationCharacters = (info) => {
-  
-  let preDisable = info.prev == null ? 'disabled' : '';
-  let nextDisable = info.next == null ? 'disabled' : '';
-    let paginationBody = ``;
+  let preDisable = info.prev == null ? "disabled" : "";
+  let nextDisable = info.next == null ? "disabled" : "";
+  let paginationBody = ``;
   paginationBody += `
   <ul class="pagination">
         <li class="page-item ${preDisable}" id="previous">
@@ -49,7 +52,7 @@ const paginationCharacters = (info) => {
         </li>
       </ul>`;
 
-      nav_pagination.innerHTML = paginationBody;
-}
+  nav_pagination.innerHTML = paginationBody;
+};
 
 characterList(url);
